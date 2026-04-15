@@ -1,0 +1,217 @@
+.app-shell {
+  min-height: 100dvh;
+  padding: clamp(16px, 4vw, 32px);
+}
+
+.app-card {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero,
+.toolbar,
+.viewer-panel {
+  background: rgba(15, 23, 42, 0.84);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 24px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.18);
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: clamp(20px, 4vw, 32px);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8b5cf6;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1;
+}
+
+.subtitle {
+  max-width: 42rem;
+  margin: 12px 0 0;
+  color: #cbd5e1;
+  font-size: 1rem;
+}
+
+.upload-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  color: #f8fafc;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.upload-button input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  flex-wrap: wrap;
+}
+
+.toolbar-group,
+.status-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+button,
+.ghost-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 600;
+  color: #e2e8f0;
+  background: rgba(148, 163, 184, 0.15);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover:not(:disabled),
+.ghost-button:hover:not(:disabled),
+.upload-button:hover {
+  transform: translateY(-1px);
+}
+
+button:hover:not(:disabled),
+.ghost-button:hover:not(:disabled) {
+  background: rgba(148, 163, 184, 0.24);
+}
+
+button:disabled,
+.ghost-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.status-pill {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.18);
+  color: #bfdbfe;
+  font-weight: 600;
+}
+
+.file-name {
+  max-width: min(360px, 80vw);
+  color: #cbd5e1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.viewer-panel {
+  min-height: 60dvh;
+  padding: clamp(12px, 3vw, 20px);
+}
+
+.viewer-stage {
+  min-height: calc(60dvh - 40px);
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top, rgba(37, 99, 235, 0.18), transparent 30%),
+    rgba(2, 6, 23, 0.52);
+  padding: 16px;
+  overflow: auto;
+}
+
+.empty-state,
+.viewer-message {
+  text-align: center;
+  color: #cbd5e1;
+}
+
+.empty-state h2 {
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+  color: #f8fafc;
+}
+
+.empty-state p,
+.viewer-message {
+  margin: 0;
+}
+
+.react-pdf__Document {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.react-pdf__Page {
+  max-width: 100%;
+}
+
+.react-pdf__Page__canvas {
+  max-width: 100%;
+  height: auto !important;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
+}
+
+@media (max-width: 720px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .upload-button {
+    width: 100%;
+  }
+
+  .toolbar {
+    align-items: stretch;
+  }
+
+  .toolbar-group,
+  .status-group {
+    width: 100%;
+  }
+
+  .toolbar-group > button {
+    flex: 1 1 120px;
+  }
+
+  .file-name {
+    max-width: 100%;
+  }
+
+  .viewer-panel {
+    min-height: 55dvh;
+  }
+}
